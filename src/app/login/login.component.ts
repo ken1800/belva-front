@@ -9,6 +9,7 @@ import { AuthService, ILogin } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  loading = false;
 
   constructor(private fb: FormBuilder, private auth: AuthService) {
     this.loginForm = fb.group({
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     const user: ILogin = {
       ...this.loginForm.value,
     };
+    this.loading = true;
     return this.auth.loginHandler(user);
   }
 

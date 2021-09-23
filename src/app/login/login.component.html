@@ -60,101 +60,31 @@
               " />
                     </div>
 
-                    <div class="mt-7 flex">
-                        <label for="remember_me" class="inline-flex items-center w-full cursor-pointer">
-              <input
-                id="remember_me"
-                type="checkbox"
-                class="
-                  rounded
-                  border-gray-300
-                  text-indigo-600
-                  shadow-sm
-                  focus:border-indigo-300
-                  focus:ring
-                  focus:ring-indigo-200
-                  focus:ring-opacity-50
-                "
-                name="remember"
-              />
-              <span class="ml-2 text-sm text-gray-600"> Remember me </span>
-            </label>
-
-                        <div class="w-full text-right">
-                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="#">
-                Forgot Password ?
-              </a>
-                        </div>
-                    </div>
-
                     <div class="mt-7">
-                        <button class="
-                bg-blue-500
-                w-full
-                py-3
-                rounded-xl
-                text-white
-                shadow-xl
-                hover:shadow-inner
-                focus:outline-none
-                transition
-                duration-500
-                ease-in-out
-                transform
-                hover:-translate-x hover:scale-105
-              " (click)="login()" type="submit">
-              Login
-            </button>
+                        <div *ngIf="loading; else elseBlock" class="text-green-700 text-lg font-bold text-center">
+                            Loading...
+                        </div>
+                        <ng-template #elseBlock>
+                            <button class="
+                  bg-blue-500
+                  w-full
+                  py-3
+                  rounded-xl
+                  text-white
+                  shadow-xl
+                  hover:shadow-inner
+                  focus:outline-none
+                  transition
+                  duration-500
+                  ease-in-out
+                  transform
+                  hover:-translate-x hover:scale-105
+                " (click)="login()" type="submit">
+                Login
+              </button>
+                        </ng-template>
                     </div>
 
-                    <div class="flex mt-7 items-center text-center">
-                        <hr class="border-gray-300 border-1 w-full rounded-md" />
-                        <label class="block font-medium text-sm text-gray-600 w-full">
-              Login with
-            </label>
-                        <hr class="border-gray-300 border-1 w-full rounded-md" />
-                    </div>
-
-                    <div class="flex mt-7 justify-center w-full">
-                        <button class="
-                mr-5
-                bg-blue-500
-                border-none
-                px-4
-                py-2
-                rounded-xl
-                cursor-pointer
-                text-white
-                shadow-xl
-                hover:shadow-inner
-                transition
-                duration-500
-                ease-in-out
-                transform
-                hover:-translate-x hover:scale-105
-              ">
-              Facebook
-            </button>
-
-                        <button class="
-                bg-red-500
-                border-none
-                px-4
-                py-2
-                rounded-xl
-                cursor-pointer
-                text-white
-                shadow-xl
-                hover:shadow-inner
-                transition
-                duration-500
-                ease-in-out
-                transform
-                hover:-translate-x hover:scale-105
-              ">
-              Google
-            </button>
-                    </div>
                     <div class="mt-7">
                         <div class="flex justify-center items-center">
                             <label class="mr-2">Don't have an account ?</label>
