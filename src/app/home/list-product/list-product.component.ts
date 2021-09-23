@@ -16,6 +16,7 @@ export class ListProductComponent implements OnInit {
   filterdProducts: Product[] = [];
   categories: Category[] = [];
   selectedCategory = '';
+  fetching = false;
 
   categoryForm = this.fb.group({
     category: '',
@@ -31,10 +32,12 @@ export class ListProductComponent implements OnInit {
   }
 
   getProducts() {
+    this.fetching = true;
     this.homeService.getProducts().subscribe(
       (data) => {
         this.products = data;
         this.filterdProducts = data;
+        this.fetching = false;
       },
       (error) => {
         console.log(error);

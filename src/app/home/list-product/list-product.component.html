@@ -34,7 +34,12 @@
   </button>
 </div>
 <div class="grid grid-cols-6 gap-1 m-5 w-10/12 ml-48">
-    <div *ngFor="let product of filterdProducts">
-        <app-product-item [product]="product"></app-product-item>
+    <div *ngIf="fetching; else elseBlock" class="text-green-700 text-lg font-bold text-center">
+        Loading...
     </div>
+    <ng-template #elseBlock>
+        <div *ngFor="let product of filterdProducts">
+            <app-product-item [product]="product"></app-product-item>
+        </div>
+    </ng-template>
 </div>

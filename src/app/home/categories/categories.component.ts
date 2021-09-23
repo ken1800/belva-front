@@ -12,6 +12,7 @@ import { HomeService } from '../home.service';
 })
 export class CategoriesComponent implements OnInit {
   categories: Category[] = [];
+  fetching = false;
 
   constructor(
     private categoryService: CategoyService,
@@ -25,8 +26,10 @@ export class CategoriesComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.fetching = true;
     this.homeService.getCategories().subscribe((categories) => {
       this.categories = categories;
+      this.fetching = false;
     });
   }
 

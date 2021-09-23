@@ -3,11 +3,17 @@
         <p class="text-center p-4 text-blue-900 font-bold text-lg">
             List of Categories
         </p>
-        <div class="" *ngFor="let category of categories">
-            <div class="border border-gray-500 w-64 text-center p-1 m-1 rounded shadow">
-                <p>{{ category.name }}</p>
-            </div>
+
+        <div *ngIf="fetching; else elseBlock" class="text-green-700 text-lg font-bold text-center">
+            Loading...
         </div>
+        <ng-template #elseBlock>
+            <div class="" *ngFor="let category of categories">
+                <div class="border border-gray-500 w-64 text-center p-1 m-1 rounded shadow">
+                    <p>{{ category.name }}</p>
+                </div>
+            </div>
+        </ng-template>
     </div>
 
     <div class="flex items-center justify-center mt-4">
