@@ -9,15 +9,22 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'test-app';
+  loggeIn = false;
 
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {
     const token = this.auth.getAuthorizationToken();
-    if (true) {
+    if (token) {
+      this.loggeIn = true;
       this.router.navigate(['home/products']);
     } else {
       this.router.navigate(['/login']);
     }
+  }
+
+  logout() {
+    this.loggeIn = false;
+    return this.auth.logout();
   }
 }

@@ -38,21 +38,38 @@
       px-8
     ">
         <div class="flex">
-            <div class="space-x-7 flex flex-row ml-2">
-                <a routerLink="/login" class="
-            block
-            text-md
-            px-4
-            py-2
-            rounded
-            ml-2
-            hover:text-gray-900
-            border border-b-2 border-gray-500 border-r-0 border-l-0 border-t-0
-            mt-4
-            lg:mt-0
-          ">Sign in</a
-        >
-      </div>
+            <div class="
+          block
+          text-md
+          px-4
+          py-2
+          rounded
+          ml-2
+          hover:text-red-400
+          border border-b-2 border-gray-500 border-r-0 border-l-0 border-t-0
+          cursor-pointer
+          mt-4
+          lg:mt-0
+        " *ngIf="loggeIn as value; else elseBlock" (click)="logout()">
+                LogOut
+            </div>
+            <ng-template #elseBlock>
+                <div class="space-x-7 flex flex-row ml-2">
+                    <a routerLink="/login" class="
+              block
+              text-md
+              px-4
+              py-2
+              rounded
+              ml-2
+              hover:text-gray-900
+              border border-b-2 border-gray-500 border-r-0 border-l-0 border-t-0
+              mt-4
+              lg:mt-0
+            ">Sign in</a
+          >
+        </div>
+      </ng-template>
     </div>
   </div>
 </nav>

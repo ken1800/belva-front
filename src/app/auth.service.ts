@@ -13,15 +13,16 @@ export interface ILogin {
 export class AuthService {
   constructor(private http: HttpClient, private navigation: Router) {}
   loginError = '';
+  url = 'http://localhost:3000/api';
 
   loginHandler(user: ILogin) {
     return this.http
-      .post<{ token: string }>('http://localhost:3000/login', user)
+      .post<{ token: string }>(`${this.url}/login`, user)
       .subscribe({
         error: (x) => (this.loginError = x),
         next: (x) => {
           localStorage.setItem('authToken', x.token);
-          this.navigation.navigate(['home']);
+          this.navigation.navigate(['home/products']);
         },
         complete: () => console.log('Completed Authorization'),
       });
