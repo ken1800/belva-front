@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 export interface ILogin {
   password: string;
@@ -13,7 +14,7 @@ export interface ILogin {
 export class AuthService {
   constructor(private http: HttpClient, private navigation: Router) {}
   loginError = '';
-  url = 'http://localhost:3000/api';
+  url = environment.URL;
 
   loginHandler(user: ILogin) {
     return this.http

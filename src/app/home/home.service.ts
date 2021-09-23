@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Category, Product } from './home.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
-  url = 'http://localhost:3000/api';
+  url = environment.URL;
 
   constructor(private http: HttpClient) {}
 
