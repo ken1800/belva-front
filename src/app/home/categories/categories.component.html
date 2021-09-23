@@ -1,0 +1,62 @@
+<div class="flex flex-row justify-around w-10/12 items-center">
+    <div class="flex flex-col justify-center items-center">
+        <p class="text-center p-4 text-blue-900 font-bold text-lg">
+            List of Categories
+        </p>
+        <div class="" *ngFor="let category of categories">
+            <div class="border border-gray-500 w-64 text-center p-1 m-1 rounded shadow">
+                <p>{{ category.name }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center mt-4">
+        <div class="w-full max-w-md">
+            <form class="bg-white shadow-xl rounded px-12 pt-6 pb-8 mb-4" [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                <div class="
+            text-gray-800 text-2xl
+            flex
+            justify-center
+            border-b-2
+            py-2
+            mb-4
+          ">
+                    Add Category
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-normal mb-2" for="category">
+            Name
+          </label>
+                    <input class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              text-gray-700
+              leading-tight
+              focus:outline-none focus:shadow-outline
+            " name="name" type="text" required autofocus placeholder="Category" formControlName="name" />
+                </div>
+
+                <div class="flex items-center justify-center">
+                    <button class="
+              px-4
+              py-2
+              rounded
+              text-white
+              inline-block
+              shadow-lg
+              bg-blue-500
+              hover:bg-blue-600
+              focus:bg-blue-700
+            " type="submit">
+            Create
+          </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

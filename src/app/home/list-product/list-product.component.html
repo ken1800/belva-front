@@ -1,0 +1,40 @@
+<div class="
+    flex flex-row
+    justify-between
+    w-10/12
+    border-b-2 border-gray-500
+    items-center
+    ml-32
+  ">
+    <p class="text-center p-4 text-blue-900 font-bold text-lg">
+        List of Products
+    </p>
+    <div class="flex flex-row items-center">
+        <label class="block text-gray-700 text-sm font-normal mb-2" for="username">
+      Filter Category
+    </label>
+
+        <select class="ml-4" [(ngModel)]="selectedCategory" (change)="filter()">
+      <option value=""></option>
+      <option *ngFor="let category of categories" [ngValue]="category._id">
+        {{ category.name }}
+      </option>
+    </select>
+    </div>
+
+    <button class="
+      border-b-2
+      p-1
+      rounded-lg
+      border-green-500
+      text-gray-700
+      hover:bg-green-100
+    " [routerLink]="['../add']">
+    Add Product
+  </button>
+</div>
+<div class="grid grid-cols-6 gap-1 m-5 w-10/12 ml-48">
+    <div *ngFor="let product of filterdProducts">
+        <app-product-item [product]="product"></app-product-item>
+    </div>
+</div>

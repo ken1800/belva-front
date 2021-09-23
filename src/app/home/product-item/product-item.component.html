@@ -1,0 +1,37 @@
+<div class="
+    w-60
+    bg-gray-50
+    rounded-lg
+    shadow-lg
+    border border-gray-500 border-opacity-30
+    h-20
+    items-center
+    m-1
+  ">
+    <div class="flex flex-row items-center justify-around">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+      />
+    </svg>
+
+        <a [title]="product.name + ' details'" [routerLink]="[product._id]" class="text-xl font-semibold text-gray-700 hover:text-yellow-400">
+      {{ product.name }}
+    </a>
+
+        <p class="text-lg text-blue-900">Ksh: {{ product.price }}</p>
+    </div>
+
+    <div class="flex flex-row justify-around pt-4 items-center">
+        <p class="text-blue-900 text-sm">
+            <span class="text-gray-600 text-xs">Qty: </span> {{ product.quantity }}
+        </p>
+        <p class="text-gray-600">
+            <span class="text-gray-600 text-xs mr-2">Category: </span
+      >{{ product.category.name }}
+    </p>
+  </div>
+</div>
