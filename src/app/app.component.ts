@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'test-app';
-  loggeIn = false;
+  loggeIn = true;
 
   constructor(private auth: AuthService, private router: Router) {}
 
@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
       this.loggeIn = true;
       this.router.navigate(['home/products']);
     } else {
+      this.loggeIn = true;
       this.router.navigate(['/login']);
     }
   }

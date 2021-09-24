@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CategoriesComponent } from './categories/categories.component';
     CreateProductComponent,
     ProductDetailsComponent,
     CategoriesComponent,
+    NavComponent,
   ],
   imports: [CommonModule, HomeRoutingModule, FormsModule, ReactiveFormsModule],
 })
