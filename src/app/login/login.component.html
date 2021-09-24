@@ -28,6 +28,9 @@
           Login
         </label>
                 <form [formGroup]="loginForm" class="mt-10">
+                    <p class="text-lg text-red-500 text-center font-serif" *ngIf="authError">
+                        {{ authError }}
+                    </p>
                     <div>
                         <input type="email" placeholder="Email" formControlName="email" class="
                 mt-1

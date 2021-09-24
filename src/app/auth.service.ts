@@ -17,16 +17,7 @@ export class AuthService {
   url = environment.URL;
 
   loginHandler(user: ILogin) {
-    return this.http
-      .post<{ token: string }>(`${this.url}/login`, user)
-      .subscribe({
-        error: (x) => (this.loginError = x),
-        next: (x) => {
-          localStorage.setItem('authToken', x.token);
-          this.navigation.navigate(['home/products']);
-        },
-        complete: () => console.log('Completed Authorization'),
-      });
+    return this.http.post<{ token: string }>(`${this.url}/login`, user);
   }
 
   getAuthorizationToken() {
