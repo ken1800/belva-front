@@ -73,19 +73,24 @@
                 </ng-template>
             </div>
             <div class="flex items-center justify-end">
-                <button class="
-            px-4
-            py-2
-            rounded
-            text-white
-            inline-block
-            shadow-lg
-            bg-blue-500
-            hover:bg-blue-600
-            focus:bg-blue-700
-          " type="submit">
-          Add
-        </button>
+                <div class="text-center space-x-4 ml-5 text-green-400" *ngIf="addingState as value; else elseBl">
+                    Loading...
+                </div>
+                <ng-template #elseBl>
+                    <button class="
+              px-4
+              py-2
+              rounded
+              text-white
+              inline-block
+              shadow-lg
+              bg-blue-500
+              hover:bg-blue-600
+              focus:bg-blue-700
+            " type="submit">
+            Add
+          </button>
+                </ng-template>
             </div>
         </form>
     </div>

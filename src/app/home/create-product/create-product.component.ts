@@ -18,6 +18,7 @@ export class CreateProductComponent implements OnInit {
   ) {}
 
   loading = false;
+  addingState = false;
   error = '';
 
   categories: Category[] = [];
@@ -55,9 +56,11 @@ export class CreateProductComponent implements OnInit {
     const productObject: ICreateProduct = {
       ...this.productForm.value,
     };
+    this.addingState = true;
     this.productService.createProduct(productObject).subscribe({
       error: (x) => (this.error = x),
       next: (x) => {
+        this.addingState = false;
         this.navigation.navigate(['home/products']);
       },
       complete: () => console.log('Completed '),
